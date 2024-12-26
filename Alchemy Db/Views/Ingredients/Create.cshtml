@@ -1,39 +1,84 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@page
+@model Alchemy_Db.Views.Ingredients.CreateModel
+
 
 <br>
 <h2>New Ingredient</h2>
+
+<h1>Debug: @Model?.ErrorMessage ?? "Model is null"</h1>
+
+@* @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>@Model.ErrorMessage</strong>
+    <button type="button" class="btn-close" data-bs-dismiss= "alert" aria-label="Close"></button>
+    </div>
+} *@
+
+@* @if (@Model == null)
+{
+    <p>Model is null</p>
+}
+@if (@Model.ErrorMessage == null)
+{
+    <p>ErrorMessage is null</p> 
+} *@
+
+
 
 <form method="POST">
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-6">
-            <input type ="text" class="form-control" name="name" value="">
+            <input type ="text" class="form-control" name="name" value="@Model.ingredientInfo.Name">
         </div>
     </div>
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Description</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="Description" value="">
+            <input type="text" class="form-control" name="Description" value="@Model.ingredientInfo.Description">
         </div>
     </div>
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Image</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="Image" value="">
+            <input type="text" class="form-control" name="Image" value="@Model.ingredientInfo.Imagefilelocation">
         </div>
     </div>
     <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Name</label>
+        <label class="col-sm-3 col-form-label">QualityOne</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="name" value="">
+            <input type="text" class="form-control" name="QualityOne" value="@Model.ingredientInfo.QualityOne">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">QualityTwo</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="QualityTwo" value="@Model.ingredientInfo.QualityTwo">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">QualityThree</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="QualityThree" value="@Model.ingredientInfo.QualityThree">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Category</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Category" value="@Model.ingredientInfo.Category">
         </div>
     </div>
 
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
 
 </form>
 
-</br>
+

@@ -6,8 +6,8 @@ namespace Alchemy_Db.Views.Ingredients
 {
     public class IndexModel : PageModel
     {
-        public List<ingredientRecall> listIngredients = new List<ingredientRecall>();
-
+        public List<ingredientInfo> listIngredients = new List<ingredientInfo>();
+        //public IngredientInfo ingredientInfo = new IngredientInfo();
         public void OnGet()
         {
             try
@@ -25,7 +25,7 @@ namespace Alchemy_Db.Views.Ingredients
                         {
                             while (reader.Read())
                             {
-                                ingredientRecall ingredientRecall = new ingredientRecall();
+                                ingredientInfo ingredientRecall = new ingredientInfo();
                                 ingredientRecall.Id = "" + reader.GetInt32(0);
                                 ingredientRecall.Name = reader.GetString(1);
                                 ingredientRecall.Description = reader.GetString(2);
@@ -49,7 +49,7 @@ namespace Alchemy_Db.Views.Ingredients
 
         }
     }
-    public class ingredientRecall
+    public class ingredientInfo
     {
         public string Id;
         public string Name;
@@ -59,9 +59,6 @@ namespace Alchemy_Db.Views.Ingredients
         public string QualityTwo;
         public string QualityThree;
         public string Category;
-       
-
-
     }
 
 }
